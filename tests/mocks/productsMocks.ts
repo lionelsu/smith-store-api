@@ -1,5 +1,5 @@
-import ProductModel from "../../src/database/models/product.model";
 import { Product } from "../../src/types/Product";
+import { SequelizeValues } from "./TypeMock";
 
 const product: Product = {
   "id": 1,
@@ -8,11 +8,7 @@ const product: Product = {
   "orderId": 4
 };
 
-type sequelizeValues = {
-  dataValues: Product;
-};
-
-const productList: sequelizeValues[] = [
+const productList: SequelizeValues<Product>[] = [
   {
     dataValues: { 
       id: 1,
