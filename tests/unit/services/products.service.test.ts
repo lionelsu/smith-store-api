@@ -22,4 +22,15 @@ describe('Tests to Products Service module', function () {
     expect(createStub).to.have.been.calledWith(productsMocks.product);
     expect(response).to.deep.equal(productsMocks.product);
   });
+  
+  it('Deve ser possível listar todos os produtos do banco de dados', async function () {
+    const fakeFindAll = sinon.stub().resolves(productsMocks.productList);
+    const createStub = sinon.stub(ProductModel, 'findAll').callsFake(fakeFindAll);
+
+    const response = await productsService.listProducts();
+    const planifiedMock = productsMocks.productList.map((product) => product.dataValues);
+
+    expect(createStub).to.have.been.calledWithExactly();
+    expect(response).to.be.deep.equal(planifiedMock);
+  });
 });

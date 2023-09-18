@@ -7,6 +7,14 @@ const insertProduct = async (product: Omit<Product, 'id'>): Promise<Product> => 
   return dataValues;
 };
 
+const listProducts = async (): Promise<Product[]> => {
+  const dataProducts = await ProductModel.findAll();
+
+  const productList = dataProducts.map((product) => product.dataValues);
+
+  return productList;
+};
+
 /*
 const teste = {
   name: 'Martelo de Thor',
@@ -21,4 +29,5 @@ const teste = {
 
 export default {
   insertProduct,
+  listProducts,
 };
