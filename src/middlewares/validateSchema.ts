@@ -11,9 +11,24 @@ type JoiValidateFunc<T> =
 
 export const joiValidate: JoiValidateFunc<AnySchema> = (schema) => (req, res, next) => {
   const { error } = schema.validate(req.body);
+  console.log(error);
 
   return error ? next(error) : next();
 };
+
+const customMessage = {
+  'string.empty': '"username" and "password" are required',
+  'any.required': '"username" and "password" are required',
+};
+
+const loginField = joiValidate(Joi.object({
+  username: Joi.string().required().messages({
+    ...customMessage,
+  }),
+  password: Joi.string().required().messages({
+    ...customMessage,
+  }),
+}));
 
 const createProduct = joiValidate(Joi.object({
   name: Joi.string().required().min(3),
@@ -83,4 +98,5 @@ const validateSchema = {
 
 export default {
   createProduct,
+  loginField,
 };
