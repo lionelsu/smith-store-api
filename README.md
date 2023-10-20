@@ -13,6 +13,7 @@ Smith Store API é uma solução completa para gerenciar uma loja de ferreiros. 
   - Node.js
   - Express.js
   - MySQL Server
+  - Sequelize ORM
 
 - **Testes:**
   - Mocha
