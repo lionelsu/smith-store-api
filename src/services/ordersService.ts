@@ -1,3 +1,4 @@
+import db from '../database/models';
 import OrderModel from '../database/models/order.model';
 import ProductModel from '../database/models/product.model';
 import { Order } from '../types/Order';
@@ -22,12 +23,24 @@ const listOrders = async (): Promise<Order[]> => {
   return orderList;
 };
 
-/*
-(async (): Promise<void> => {
-  console.log(await listOrders());
-})();
-*/
+const insertOrder = async (order: Omit<Order, 'id'>): Promise<Order> => {
+  const { userId, productIds } = order;
+  const result = await db.transaction(async (transaction) => {
+    const newOrder = await OrderModel.create({ userId }, { transaction });
+    const updatePromises = productIds?.map((productId) => ProductModel.update(
+      { orderId: newOrder.dataValues.id },
+      { where: { id: productId }, transaction },
+    ));
+    if (updatePromises) {
+      await Promise.all(updatePromises);
+    }
+    return { ...newOrder.dataValues, productIds };
+  });
+
+  return result;
+};
 
 export default {
   listOrders,
+  insertOrder,
 };

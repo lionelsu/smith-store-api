@@ -36,6 +36,11 @@ const createProduct = joiValidate(Joi.object({
   orderId: Joi.number().required(),
 }));
 
+const createOrder = joiValidate(Joi.object({
+  userId: Joi.number().required(),
+  productIds: Joi.array().items(Joi.number().integer().required()),
+}));
+
 /*
 const customMessage = {
   'string.empty': 'Some required fields are missing',
@@ -99,4 +104,5 @@ const validateSchema = {
 export default {
   createProduct,
   loginField,
+  createOrder,
 };

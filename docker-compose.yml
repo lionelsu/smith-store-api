@@ -2,21 +2,21 @@ version: "3.1"
 
 services:
   # Serviço que irá rodar o node
-  app-trybesmith:
+  app-smithstore:
     # Imagem base do container
     build: .
     # Usuário linux padrão do container, não é recomendado usar root
     # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#non-root-user
     user: node
     # Nome do container para facilitar execução
-    container_name: trybesmith_api
+    container_name: smithstore_api
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
     stdin_open: true
     # Substitui o comando padrão da imagem do node
     command: npm run dev
-    image: trybesmith-api:8.5
+    image: smithstore-api:8.5
     # Restarta a imagem caso algo a faça parar
     restart: always
     # platform: linux/x86_64
@@ -40,12 +40,12 @@ services:
       DB_PASSWORD: password
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: Trybesmith
+      DB_NAME: Smithstore
       JWT_SECRET: secret
 
   # Serviço que irá rodar o banco de dados
   db:
-    container_name: trybesmith_db
+    container_name: smithstore_db
     image: mysql:8.0.32
     restart: always
     # Lista de portas mapeadas de dentro para fora do container
