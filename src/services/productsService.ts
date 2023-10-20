@@ -15,18 +15,6 @@ const listProducts = async (): Promise<Product[]> => {
   return productList;
 };
 
-/*
-const teste = {
-  name: 'Martelo de Thor',
-  price: '30 peças de ouro',
-  orderId: 4,
-};
-
-(async (): Promise<void> => {
-  console.log(await insertProduct(teste));
-})();
-*/
-
 export default {
   insertProduct,
   listProducts,
