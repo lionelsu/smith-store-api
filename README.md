@@ -20,7 +20,6 @@ Smith Store API é uma solução completa para gerenciar uma loja de ferreiros. 
   - Sinon
 
 - **Documentação:**
-  - Swagger
   - Postman
 
 ## Pré-Requisitos
@@ -60,12 +59,6 @@ Utilize o Docker:
     docker exec smithstore_api npm run db:reset
     ```
 
-4. Acesse a documentação da API no navegador:
-
-    ```http
-    http://127.0.0.1:3001/v1/docs/
-    ```
-
 </details>
 
 <details>
@@ -100,12 +93,6 @@ Utilize o Docker:
 
     ```bash
     npm run dev
-    ```
-
-5. Acesse a documentação da API no navegador:
-
-    ```http
-    http://127.0.0.1:3001/v1/docs/
     ```
 
 </details>
@@ -168,8 +155,6 @@ Escolhi usar o banco de dados `MySQL Server` para armazenar informações sobre 
 
 Para garantir a qualidade do código, realizei testes rigorosos com `Mocha`, `Chai` e `Sinon`. Esses testes verificaram minuciosamente os endpoints, serviços e funções para garantir que tudo funcione corretamente.
 
-Documentei a `API` usando o `Swagger`, que fornece informações detalhadas sobre as rotas, parâmetros e exemplos práticos.
-
-Também criei uma coleção no `Postman` para facilitar os testes e interações com a `API`.
+Também criei uma Documentação no `Postman` para facilitar os testes e interações com a `API`.
 
 Com essas etapas concluídas, estou confiante na entrega de uma `API` sólida e funcional, pronta para atender às necessidades dos usuários.
