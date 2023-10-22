@@ -154,6 +154,8 @@ Desenvolvi minha aplicação usando `Node.js` com `Express.js` como base. Isso m
 
 Escolhi usar o banco de dados `MySQL Server` para armazenar informações sobre produtos, vendas e outros aspectos importantes do sistema.
 
+A regra de negocio foi implementada utilizando o `Sequelize ORM` para facilitar a interação com o banco de dados e os algorithmos de classificação foram implementados utilizando o `JavaScript` em uma camada especifica para isso.
+
 Para garantir a qualidade do código, realizei testes rigorosos com `Mocha`, `Chai` e `Sinon`. Esses testes verificaram minuciosamente os endpoints, serviços e funções para garantir que tudo funcione corretamente.
 
 Também criei uma Documentação no `Postman` para facilitar os testes e interações com a `API`.
