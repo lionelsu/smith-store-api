@@ -25,7 +25,11 @@ Smith Store API é uma solução completa para gerenciar uma loja de ferreiros. 
 
 ## Pré-Requisitos
 
-Utilize o Docker:
+Node versão igual ou superio a 16.14.0 LTS:
+
+- [Node.js](https://nodejs.org/en/)
+
+Docker e Docker Compose:
 
 - [Docker & Docker Compose](https://docs.docker.com/compose/)
 
